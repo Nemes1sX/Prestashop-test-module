@@ -42,7 +42,7 @@ class UzduotisModelModel extends ObjectModel
 	}
 
 
-	public static function uninstallSql() //When module is uninstalling, table is dropped
+	public static function uninstallSql()
     {
         $tableName = _DB_PREFIX_ . self::$definition['table'];
 

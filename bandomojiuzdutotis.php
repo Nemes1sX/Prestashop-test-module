@@ -41,7 +41,7 @@ class BandomojiUzdutotis extends Module
 			parent::install()
 			&& $this->installTab()
 			&& $this->initDefaultConfigurationValues()
-			&& UzduotisModelModel::installSql() //Create customers table
+			&& UzduotisModelModel::installSql()
 		;
 	}
 
@@ -50,14 +50,13 @@ class BandomojiUzdutotis extends Module
 		return
 			parent::uninstall()
 			&& $this->uninstallTab()
-            && UzduotisModelModel::uninstallSql() //Drop customers table
+            && UzduotisModelModel::uninstallSql()
 		;
 	}
 	
 	/** Module configuration page */
 	public function getContent()
 	{
-	    //Config page content
 		return 'Bandomoji uzduotis configuration page !'.$this->displayForm().'  '.$this->displayList();
 	}
 
