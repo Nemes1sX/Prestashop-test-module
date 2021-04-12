@@ -1,8 +1,5 @@
 <form action="{$link->getAdminLink('AdminUzduotisAdmin')|escape:'htmlall':'utf-8'}" method="post" class="form-horizontal">
     <div class="panel edit_page_section">
-        <div class="panel-heading">
-            <i class="icon-pencil"></i> Edit page: {$page.page_name}
-        </div>
         <div class="form-wrapper">
             <div class="form-group">
                 <label class="control-label col-lg-3">First Name</label>

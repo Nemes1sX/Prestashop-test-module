@@ -57,7 +57,7 @@ class BandomojiUzdutotis extends Module
 	/** Module configuration page */
 	public function getContent()
 	{
-		return 'Bandomoji uzduotis configuration page !'.$this->displayForm().'  '.$this->displayList();
+		return 'Bandomoji uzduotis configuration page !'.$this->displayForm();
 	}
 
     public function displayForm()
@@ -149,52 +149,6 @@ class BandomojiUzdutotis extends Module
 
 
         return $helper->generateForm($fieldsForm);
-    }
-
-    public function displayList()
-    {
-        $sql = "SELECT * FROM"._DB_PREFIX_."uzduotis_model";
-        if ($result = Db::getInstance()->executeS($sql)) {
-            $fields_list = array(
-                'id_customer' => array(
-                  'title' => 'ID',
-                   'width' => 'auto',
-                   'type' => 'text'
-                ),
-                'first_name' => array(
-                    'title' => $this->l('First name'),
-                    'width' => 'auto',
-                    'type' => 'text'
-                ),
-                'last_name' => array(
-                    'title' => $this->l('Last name'),
-                    'width' => 'auto',
-                    'type' => 'text'
-                ),
-                'email' => array(
-                    'title' => $this->l('Email'),
-                    'width' => 'auto',
-                    'type' => 'text'
-                ),
-            );
-
-            $helper = new HelperList();
-
-            $helper->shopLinkType = '';
-            $helper->simple_header = true;
-            $helper->identifier = 'id_customer';
-            $helper->actions = array('edit', 'delete');
-            $helper->show_toolbar = false;
-            $helper->title = $this->displayName;
-            $helper->table = $this->name;
-            $helper->token = Tools::getAdminTokenLite('AdminModules');
-            $helper->currentIndex = AdminController::$currentIndex.'&configure='.$this->name;
-
-            return $helper->generateList($result, $fields_list);
-        }
-
-
-        return false;
     }
 
 	/** Initialize the module declaration */
